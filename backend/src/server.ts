@@ -1,6 +1,5 @@
 import fastify from "fastify";
-import { UserController } from "./controller/UserController";
-import { Database, verbose } from 'sqlite3';
+import { UserController } from "./controller/user.controller";
 
 const app = fastify({ logger: true });
 
