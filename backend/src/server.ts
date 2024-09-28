@@ -7,27 +7,25 @@ import { configDotenv } from "dotenv";
 // Carregar variáveis de ambiente
 configDotenv();
 
+// Especifica a porta
 const PORT = Number(process.env.PORT) || 4000;
 
-// Mova a inicialização do servidor para uma função assíncrona
-function start() {
-    // Set Fastify APP
-    const app = fastify({ logger: true });
+// Config necessária para adequação do deploy no render (padrão 0.0.0.0)
+const host = '0.0.0.0';
 
-    // Controllers
-    app.register(UserController, { prefix: '/users' });
-    app.register(AuthController, { prefix: '/auth' });
+// Set Fastify APP
+const app = fastify({ logger: true });
 
-    return app;
-}
+// Registra os controllers
+app.register(UserController, { prefix: '/users' });
+app.register(AuthController, { prefix: '/auth' });
 
-const app = start();
-
+// Iniciar o server
 app.listen({ port: PORT, host: '0.0.0.0' }, (err: Error | null, address: string) => {
     if (err) {
         console.error(err);
         process.exit(1);
     }
 
-    console.log(`Server is running on ${address}`);
+    console.log(`Servidor sendo executado em ${address}`);
 });

@@ -1,10 +1,10 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTcyNzUyNTUxNCwiZXhwIjoxNzI3NTI5MTE0fQ.bzd8N4arsooJCfkm11nY6R34I1vtsi_x9sLRdj-_Y5s
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzUzMjc5MCwiZXhwIjoxNzI3NTM2MzkwfQ.0-2yJGPTw8LnAnBoahu3QcfkHJHHOQtYRli05G6XbmQ
+@host = https://aula-app.onrender.com
 ### Get users
-GET http://localhost:3333/users/list
+GET {{host}}/users/list
 Authorization: Bearer {{token}}
 ### Save user
-POST http://localhost:3333/users/create HTTP/1.1
+POST {{host}}/users/create HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -17,7 +17,7 @@ Authorization: Bearer {{token}}
 }
 
 ### Update user
-PUT http://localhost:3333/users/update/1 HTTP/1.1
+PUT {{host}}/users/update/1 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -29,5 +29,5 @@ Authorization: Bearer {{token}}
 }
 
 ### Delete user
-DELETE http://localhost:3333/users/delete/4 HTTP/1.1
+DELETE {{host}}/users/delete/4 HTTP/1.1
 Authorization: Bearer {{token}}
