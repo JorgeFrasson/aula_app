@@ -23,7 +23,7 @@ function start() {
 
 const app = start();
 
-app.listen({ port: PORT }, (err: Error | null, address: string) => {
+app.listen({ port: PORT, host: '0.0.0.0' }, (err: Error | null, address: string) => {
     if (err) {
         console.error(err);
         process.exit(1);
