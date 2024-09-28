@@ -1,0 +1,8 @@
+### Login
+POST http://localhost:3333/auth/login
+Content-Type: application/json
+
+{
+    "username": "jorge.frasson",
+    "password": "123456"
+}

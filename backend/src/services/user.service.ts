@@ -1,4 +1,4 @@
-import { SaveUserRequest } from "../models/user";
+import { SaveUserRequest } from "../dto/userDTO";
 import { UserRepository } from "../repositories/user.repository";
 
 export class UserService {
@@ -12,19 +12,49 @@ export class UserService {
         try {
             const username = this.validateUsername(request.username);
             const password = this.validatePassword(request.password);
+            const cpf = this.validateCpf(request.cpf);
             const email = request.email;
+            
+            await this.validateUserExists(request);
     
             const user = this.userRepository.createUser({
                 name: request.name,
                 email,
                 password,
-                username
+                username,
+                cpf
             });
             
             return user;
         } catch (error) {
             console.log(error);
             throw error;
+        }
+    }
+
+    private validateCpf(cpf: string) {
+        return cpf;
+    }
+
+    private async validateUserExists(request: SaveUserRequest) {
+        let user;
+
+        user = await this.userRepository.getUserByEmail(request.email);
+
+        if(user){
+            throw new Error("Este email já está cadastrado!");
+        }
+
+        user = await this.userRepository.getUserByUsername(request.username);
+
+        if(user){
+            throw new Error("Este usuário já está cadastrado!");
+        }
+
+        user = await this.userRepository.getUserByCpf(request.cpf);
+
+        if(user){
+            throw new Error("Este CPF já está cadastrado!");
         }
     }
     

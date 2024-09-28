@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Nodemon",
+        "restart": true,
+        "runtimeExecutable": "npx",  // Usa npx para garantir que o nodemon será encontrado
+        "runtimeArgs": [
+          "nodemon",
+          "--watch", "src",          // Monitorar mudanças na pasta src
+          "--ext", "ts",             // Arquivos com extensão .ts
+          "--exec", "tsx",           // Usar tsx para executar o TypeScript
+          "src/server.ts"            // O arquivo principal a ser executado
+        ],
+        "console": "integratedTerminal", // Usar o terminal integrado do VSCode
+        "internalConsoleOptions": "neverOpen",
+        "port": 9229 // porta para o depurador (pode ser ajustada)
+      }
+    ]
+  }

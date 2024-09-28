@@ -1,11 +1,11 @@
 // src/repositories/user.repository.ts
 import { User } from '@prisma/client';
 import prisma from '../../prisma/client';
-import { SaveUserRequest } from '../models/user';
+import { SaveUserRequest } from '../dto/userDTO';
 
 export class UserRepository {
   async createUser(user: SaveUserRequest) {
-    return prisma.user.create({data: user});
+    return await prisma.user.create({data: user});
   }
 
   async getUsers() {
@@ -13,19 +13,37 @@ export class UserRepository {
   }
 
   async getUserById(id: number) {
-    return prisma.user.findUnique({
+    return await prisma.user.findUnique({
       where: { id },
     });
   }
 
+  async getUserByEmail(email: string) {
+    return await prisma.user.findUnique({
+      where: { email },
+    });
+  }
+
+  async getUserByUsername(username: string) {
+    return await prisma.user.findUnique({
+      where: { username },
+    });
+  }
+
+  async getUserByCpf(cpf: string) {
+    return await prisma.user.findUnique({
+      where: { cpf },
+    });
+  }
+
   async deleteUser(id: number) {
-    return prisma.user.delete({
+    return await prisma.user.delete({
       where: { id },
     });
   }
 
   async updateUser(id: number, userUpdated: User) {
-    return prisma.user.update({
+    return await prisma.user.update({
       where: { id },
       data: userUpdated,
     });

@@ -6,10 +6,3 @@ export const userSchema = z.object({
     password: z.string().min(8).max(50),
     username: z.string().email()
 });
-
-export type SaveUserRequest = {
-    name: string;
-    email: string;
-    password: string;
-    username: string;
-}
