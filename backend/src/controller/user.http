@@ -1,11 +1,12 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTcyNzUyNTUxNCwiZXhwIjoxNzI3NTI5MTE0fQ.bzd8N4arsooJCfkm11nY6R34I1vtsi_x9sLRdj-_Y5s
+
 ### Get users
 GET http://localhost:3333/users/list
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzUyMzQ1NiwiZXhwIjoxNzI3NTI3MDU2fQ.GMzmkLo1Ekw9xFtzkQvMom4ImcItXTyWi-TUwJvK9Y8
-
+Authorization: Bearer {{token}}
 ### Save user
 POST http://localhost:3333/users/create HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzUyMzQ1NiwiZXhwIjoxNzI3NTI3MDU2fQ.GMzmkLo1Ekw9xFtzkQvMom4ImcItXTyWi-TUwJvK9Y8
+Authorization: Bearer {{token}}
 
 {
     "username": "jorge.frasson1",
@@ -14,3 +15,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhd
     "name": "Jorge Henrique Frasson",
     "cpf": "14545220704"
 }
+
+### Update user
+PUT http://localhost:3333/users/update/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "username": "jorge.frasson2",
+    "email": "jorge.frasson@gmail.com",
+    "password": "123456",
+    "name": "Jorge Henrique Frasson"
+}
+
+### Delete user
+DELETE http://localhost:3333/users/delete/4 HTTP/1.1
+Authorization: Bearer {{token}}

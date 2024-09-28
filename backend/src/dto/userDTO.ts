@@ -5,3 +5,10 @@ export type SaveUserRequest = {
     password: string;
     username: string;
 }
+
+export type UpdateUserRequest = {
+    name: string;
+    email: string;
+    password: string;
+    username: string;
+}

@@ -15,4 +15,5 @@ model User {
   email String  @unique
   username String @unique
   password String
+  administrator Boolean @default(false)
 }

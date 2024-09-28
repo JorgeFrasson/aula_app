@@ -20,7 +20,6 @@ const createUser = async (request, reply) => {
 
 const listUsers = async (request, reply) => {
     try {
-        console.log(reply.auth);
         const data = await userService.listUsers();
         return reply.status(200).send(data);
     } catch (error) {
@@ -28,7 +27,29 @@ const listUsers = async (request, reply) => {
     }
 }
 
+const updateUser = async (request, reply) => {
+    try {
+        const id = Number(request.params.id);
+        const data = await userService.updateUser(id, request.body);
+        return reply.status(200).send(data);
+    } catch (error) {        
+        return reply.status(400).send(error.message);
+    }
+}
+
+const deleteUser = async (request, reply) => {
+    try {
+        const id = Number(request.params.id);
+        await userService.deleteUser(id);
+        return reply.status(200).send();
+    } catch (error) {
+        reply.status(400).send(error.message);
+    }
+}
+
 export async function UserController(fastify: FastifyInstance, options) {
     fastify.post("/create", { preHandler: [authRequest] }, createUser);
     fastify.get("/list", { preHandler: [authRequest] }, listUsers);
+    fastify.put<{ Params: { id: number } }>("/update/:id", { preHandler: [authRequest] }, updateUser);
+    fastify.delete<{ Params: { id: number } }>("/delete/:id", { preHandler: [authRequest] }, deleteUser);
 }

@@ -1,7 +1,7 @@
 // src/repositories/user.repository.ts
 import { User } from '@prisma/client';
 import prisma from '../../prisma/client';
-import { SaveUserRequest } from '../dto/userDTO';
+import { SaveUserRequest, UpdateUserRequest } from '../dto/userDTO';
 
 export class UserRepository {
   async createUser(user: SaveUserRequest) {
@@ -42,7 +42,7 @@ export class UserRepository {
     });
   }
 
-  async updateUser(id: number, userUpdated: User) {
+  async updateUser(id: number, userUpdated: UpdateUserRequest) {
     return await prisma.user.update({
       where: { id },
       data: userUpdated,
