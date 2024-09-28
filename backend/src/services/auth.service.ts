@@ -1,5 +1,5 @@
-import { LoginRequest } from "../models/auth";
-import { UserRepository } from "../repositories/user.repository";
+import { UserRepository } from "@repositories/user.repository";
+import { LoginRequest, SignupRequest } from "../models/auth";
 import Token from "../utils/token";
 
 export class AuthService {
@@ -25,5 +25,9 @@ export class AuthService {
         const token = await this.token.generateToken({ userId: user.id });
 
         return { token }
+    }
+
+    async register(request: SignupRequest) {
+        
     }
 }

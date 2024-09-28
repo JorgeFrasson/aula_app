@@ -5,22 +5,27 @@
         "strict": false,                            // Desativa o modo estrito para evitar erros rigorosos
         "noImplicitAny": false,                     // Permite o uso implícito de `any`
         "skipLibCheck": true,                       // Ignora verificação de tipos em arquivos de declaração de bibliotecas
-        "forceConsistentCasingInFileNames": true,   // Garante consistência no uso de maiúsculas e minúsculas nos arquivos
+        "forceConsistentCasingInFileNames": true,  // Garante consistência no uso de maiúsculas e minúsculas nos arquivos
         "esModuleInterop": true,                    // Permite interoperabilidade entre módulos ES e CommonJS
         "resolveJsonModule": true,                  // Habilita a importação de arquivos JSON
         "allowSyntheticDefaultImports": true,       // Permite importações padrão em módulos que não exportam como padrão
         "isolatedModules": false,                   // Permite módulos isolados
         "noEmitOnError": false,                     // Permite gerar saída mesmo com erros
-        "baseUrl": ".",                             // Define o diretório base
+        "baseUrl": "./src",                         // Define o diretório base para resolver caminhos
         "paths": {                                  // Definições de caminho, se aplicável
-            "@src": ["src/*"],
-            "@prisma": ["prisma/*"]
+            "@repositories/*": ["repositories/*"],
+            "@controller/*": ["controller/*"],
+            "@services/*": ["services/*"],
+            "@middleware/*": ["middleware/*"],
+            "@models/*": ["models/*"],
+            "@utils/*": ["utils/*"],
+            "@dto/*": ["dto/*"],
         },
-        "rootDir": "./",                         // Define o diretório raiz dos arquivos TypeScript
+        "rootDir": "./",                        // Define o diretório raiz dos arquivos TypeScript
         "outDir": "./dist"                          // Diretório de saída dos arquivos compilados
     },
     "include": [
-        "./**/*.ts"                               // Inclui apenas arquivos TypeScript dentro da pasta src
+        "./src/**/*.ts"                             // Inclui apenas arquivos TypeScript dentro da pasta src
     ],
     "exclude": [
         "node_modules",                             // Exclui o diretório node_modules

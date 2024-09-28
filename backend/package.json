@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec tsx --inspect=9229 src/server.ts",
-    "start": "node dist/src/server.js",
+    "start": "ts-node -r tsconfig-paths/register dist/src/server.js",
     "build": "tsc",
     "prisma:migrate": "prisma migrate deploy",
     "prepare": "prisma generate"
@@ -30,6 +30,7 @@
     "jsonwebtoken": "^9.0.2",
     "sqlite3": "^5.1.7",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^3.23.8"
   }
 }

@@ -1,5 +1,4 @@
 // src/repositories/user.repository.ts
-import { User } from '@prisma/client';
 import prisma from '../../prisma/client';
 import { SaveUserRequest, UpdateUserRequest } from '../dto/userDTO';
 
