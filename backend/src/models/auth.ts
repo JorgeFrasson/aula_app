@@ -4,6 +4,9 @@ export type LoginRequest = {
 }
 
 export type SignupRequest = {
-    username: string;
+    name: string;
+    email: string;
+    cpf: string;
     password: string;
+    username: string;
 }

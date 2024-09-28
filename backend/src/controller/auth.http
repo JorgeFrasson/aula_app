@@ -9,3 +9,15 @@ Content-Type: application/json
     "username": "jorge.frasson",
     "password": "123456789"
 }
+
+### Register user
+POST {{host}}/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "usuario.teste",
+    "email": "example@email.com",
+    "password": "123456",
+    "name": "Usuário Teste de Exemplo",
+    "cpf": "14545220703"
+}

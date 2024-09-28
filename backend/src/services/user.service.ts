@@ -10,31 +10,26 @@ export class UserService {
     }
 
     async createUser(request: SaveUserRequest) {
-        try {
-            const username = this.validateUsername(request.username);
-            const password = this.validatePassword(request.password);
-            const cpf = this.validateCpf(request.cpf);
-            const email = request.email;
-            
-            await this.checkCpfExists(request.cpf);
-            await this.checkEmailExists(request.email);
-            await this.checkUsernameExists(request.username);
-    
-            let user = {
-                name: request.name,
-                email,
-                password,
-                username,
-                cpf
-            };
+        const username = this.validateUsername(request.username);
+        const password = this.validatePassword(request.password);
+        const cpf = this.validateCpf(request.cpf);
+        const email = request.email;
+        
+        await this.checkCpfExists(request.cpf);
+        await this.checkEmailExists(request.email);
+        await this.checkUsernameExists(request.username);
 
-            user = await this.userRepository.createUser(user);
-            
-            return user;
-        } catch (error) {
-            console.log(error);
-            throw error;
-        }
+        let user = {
+            name: request.name,
+            email,
+            password,
+            username,
+            cpf
+        };
+
+        user = await this.userRepository.createUser(user);
+        
+        return user;
     }
 
     private validateCpf(cpf: string) {

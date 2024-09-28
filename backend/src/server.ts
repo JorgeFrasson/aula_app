@@ -21,7 +21,7 @@ app.register(UserController, { prefix: '/users' });
 app.register(AuthController, { prefix: '/auth' });
 
 // Iniciar o server
-app.listen({ port: PORT, host: '0.0.0.0' }, (err: Error | null, address: string) => {
+app.listen({ port: PORT, host }, (err: Error | null, address: string) => {
     if (err) {
         console.error(err);
         process.exit(1);
