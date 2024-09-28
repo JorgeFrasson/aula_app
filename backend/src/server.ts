@@ -2,11 +2,19 @@ import fastify from "fastify";
 import { UserController } from "./controller/user.controller";
 import { AuthController } from "./controller/auth.controller";
 import fastifyEnv from "@fastify/env";
+import { configDotenv } from "dotenv";
+
+// Carregar variáveis de ambiente
+configDotenv();
 
 const schema = {
     type: 'object',
     required: [ 'DATABASE_URL', 'SECRET' ],
     properties: {
+        DATABASE_URL: {
+            type: 'string',
+            default: ''
+        },
         PORT: {
             type: 'string',
             default: 3000
@@ -14,7 +22,7 @@ const schema = {
         SECRET: {
             type: 'string',
             default: 'defaultsupersecret'
-        }
+        },
     }
 }
 
@@ -38,7 +46,7 @@ async function start() {
     app.register(AuthController, { prefix: '/auth' });
 
     // Servier configuration
-    app.listen({ port: 3333 }, (err: Error | null, address: string) => {
+    app.listen({ port: Number(process.env.PORT) }, (err: Error | null, address: string) => {
         if (err) {
             console.error(err);
             process.exit(1);
