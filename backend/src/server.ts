@@ -1,7 +1,7 @@
 import fastify from "fastify";
 import { UserController } from "./controller/user.controller";
 import { AuthController } from "./controller/auth.controller";
-import * as fastifyEnv from "@fastify/env";
+import fastifyEnv from "@fastify/env";
 
 const schema = {
     type: 'object',
