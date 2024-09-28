@@ -1,4 +1,3 @@
-import { User } from "@prisma/client";
 import { SaveUserRequest, UpdateUserRequest } from "../dto/userDTO";
 import { UserRepository } from "../repositories/user.repository";
 

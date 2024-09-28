@@ -1,7 +1,7 @@
-import { UserRepository } from "@repositories/user.repository";
+import { UserRepository } from "../repositories/user.repository";
 import { LoginRequest, SignupRequest } from "../models/auth";
 import Token from "../utils/token";
-import { SaveUserRequest } from "@dto/userDTO";
+import { SaveUserRequest } from "../dto/userDTO";
 import { UserService } from "./user.service";
 
 export class AuthService {
