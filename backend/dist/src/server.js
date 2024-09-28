@@ -10,6 +10,7 @@ const env_1 = __importDefault(require("@fastify/env"));
 const dotenv_1 = require("dotenv");
 // Carregar variáveis de ambiente
 (0, dotenv_1.configDotenv)();
+const PORT = Number(process.env.PORT) || 4000;
 const schema = {
     type: 'object',
     required: ['DATABASE_URL', 'SECRET'],
@@ -43,9 +44,8 @@ async function start() {
     // Controllers
     app.register(user_controller_1.UserController, { prefix: '/users' });
     app.register(auth_controller_1.AuthController, { prefix: '/auth' });
-    console.log(process.env);
     // Servier configuration
-    app.listen({ port: Number(process.env.PORT) }, (err, address) => {
+    app.listen({ port: PORT }, (err, address) => {
         if (err) {
             console.error(err);
             process.exit(1);
