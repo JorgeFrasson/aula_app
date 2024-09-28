@@ -7,6 +7,8 @@ import { configDotenv } from "dotenv";
 // Carregar variáveis de ambiente
 configDotenv();
 
+const PORT = Number(process.env.PORT) || 4000;
+
 const schema = {
     type: 'object',
     required: [ 'DATABASE_URL', 'SECRET' ],
@@ -46,7 +48,7 @@ async function start() {
     app.register(AuthController, { prefix: '/auth' });
 
     // Servier configuration
-    app.listen({ port: Number(process.env.PORT) }, (err: Error | null, address: string) => {
+    app.listen({ port: PORT }, (err: Error | null, address: string) => {
         if (err) {
             console.error(err);
             process.exit(1);
