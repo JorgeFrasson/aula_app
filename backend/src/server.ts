@@ -3,6 +3,7 @@ import { UserController } from "./controller/user.controller";
 import { AuthController } from "./controller/auth.controller";
 import fastifyEnv from "@fastify/env";
 import { configDotenv } from "dotenv";
+import cors from "@fastify/cors";
 
 // Carregar variáveis de ambiente
 configDotenv();
@@ -15,6 +16,7 @@ const host = '0.0.0.0';
 
 // Set Fastify APP
 const app = fastify({ logger: true });
+app.register(cors, { origin: "*" }); // Necessário para chamar via frontend local
 
 // Registra os controllers
 app.register(UserController, { prefix: '/users' });

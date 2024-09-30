@@ -1,0 +1,43 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #3578e5; /* Cor de fundo azul */
+  }
+  
+  .not-found-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .not-found-image img {
+    width: 200px;
+    height: auto;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .back-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #3578e5; /* Azul para o botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #285bb5; /* Cor mais escura ao passar o mouse */
+  }
+  

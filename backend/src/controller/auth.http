@@ -1,5 +1,5 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNzUzMjc5MCwiZXhwIjoxNzI3NTM2MzkwfQ.0-2yJGPTw8LnAnBoahu3QcfkHJHHOQtYRli05G6XbmQ
-@host = https://aula-app.onrender.com
+@host = http://localhost:10000
 
 ### Login
 POST {{host}}/auth/login

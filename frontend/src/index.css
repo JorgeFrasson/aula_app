@@ -1,0 +1,39 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+:root {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Cor de fundo clara para contraste */
+}
+
+#root {
+  width: 100%;
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  display: flex;
+  flex-direction: column; /* Permite que o conteúdo seja organizado em coluna */
+  background-color: transparent; /* Mantém o root incolor */
+  box-sizing: border-box; /* Garante que o padding e border sejam incluídos no tamanho */
+}
