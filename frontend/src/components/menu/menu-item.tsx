@@ -30,7 +30,7 @@ export default function MenuItem({
         return;       
     }, [router.pathname]);
 
-    const handleMenuItemClick = useCallback((e: any) => {
+    const handleMenuItemClick = useCallback((_e: any) => {
         if(path) {
             router.push(path);
             return;
